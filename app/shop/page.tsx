@@ -10,7 +10,6 @@ const Shop = () => {
   return (
     <Provider store={store}>
       <div>
-        <Nav />
         <h1>E-Commerce App</h1>
         <Products />
         <Cart />
