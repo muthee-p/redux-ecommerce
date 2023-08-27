@@ -12,13 +12,15 @@ const Products = () =>{
 			id:1,
 			name:'plate',
 			price: 100,
-			quantity: null
+			quantity: null,
+			category: "A"
 		},
 		{
 			id:2,
 			name:'cup',
 			price: 15,
-			quantity: null
+			quantity: null,
+			category: "B"
 		}
 	];
 
