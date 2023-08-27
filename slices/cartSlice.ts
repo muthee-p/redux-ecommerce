@@ -1,15 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  totalPrice: number;
+}
+
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState: [],
 	reducers: {
 		addToCart: (state, action) => {
+			const {id, name, price, quantity = 1 } = action.payload;
+			
 			const existingItem = state.find(item => item.id === action.payload.id);
+			
 			if(existingItem){
-				existingItem.quantity += action.payload.quantity;
+				existingItem.quantity += quantity;
+				existingItem.totalPrice = roundToTwoDecimals(existingItem.price * existingItem.quantity);
+
 			}else{
-				state.push(action.payload);
+				state.push({id, name, price, quantity, totalPrice: price * quantity});
 			}
 		},
 		removeFromCart: (state, action) => {
@@ -23,6 +36,9 @@ const cartSlice = createSlice({
 				itemToUpdate.totalPrice = roundToTwoDecimals(itemToUpdate.price * quantity);
 			}
 		},
+		clearCart: state =>{
+			return [];
+		}
 	},
 
 });
@@ -31,5 +47,5 @@ function roundToTwoDecimals(value) {
 	return Math.round(value * 100)/100;
 }
 
-export const { addToCart, removeFromCart, adjustQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart, adjustQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer

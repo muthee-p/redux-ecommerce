@@ -1,11 +1,16 @@
 'use client'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, adjustQuantity } from '../slices/cartSlice';
+import { removeFromCart, adjustQuantity, clearCart } from '../slices/cartSlice';
 
-const Cart = () =>{
+const CartPage = () =>{
 	const cartItems = useSelector(state => state.cart)
 	const dispatch = useDispatch();
+	
+	const totalCost = cartItems.reduce(
+		(total, item) => total + item.totalPrice,
+		0
+		);
 
 	if (!cartItems) {
   		return <div>Loading cart...</div>;
@@ -23,9 +28,12 @@ const Cart = () =>{
 		console.log(item)
 		dispatch(removeFromCart(item));
 	};
+	const handleCheckOut = () =>{
+		dispatch(clearCart());
+	}
 	
 	return(
-		<div className= 'bg-gray-800 p-8'>
+		<div className= ''>
 			<h2>Cart</h2>
 			{cartItems.map(item =>(
 				<div key={item.id}>
@@ -45,10 +53,16 @@ const Cart = () =>{
 						onClick={() => handleRemoveFromCart(item)}
 						className='bg-blue-600'
 						>Remove</button>
+				
 				</div>
 				))}
+			<div>
+				<p> Total Cost: {totalCost.toFixed(2)}</p>
+				<button className='bg-green-800'
+					onClick={handleCheckOut}>Checkout</button>
+			</div>
 		</div>
 		)
 
 }
-export default Cart
+export default CartPage

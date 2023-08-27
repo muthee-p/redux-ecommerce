@@ -1,4 +1,4 @@
-import Nav from "@components/Nav";
+
 import Providers from "@components/Providers";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <Nav />
+          
 
           {children}
         </Providers>
