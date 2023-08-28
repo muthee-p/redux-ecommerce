@@ -25,3 +25,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.bg-cover-full {
+  background-image: url(/images/clothes.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+.cart-font{
+  font-size: 10px;
+line-height: 14px;
+}

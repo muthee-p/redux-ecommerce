@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image'
+import SigninButton from './SigninButton';
 
 
 const Nav = () => {
@@ -11,13 +12,24 @@ const Nav = () => {
    const cartItems = useSelector(state => state.cart);
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
+  return (
+    <div className= 'fixed w-full px-20 py-4 flex justify-between backdrop-blur'>
+      <Link href="/">YouShop
+      </Link>
 
-  if (session && session.user) {
-    return (
-      <div className="flex gap-4 ml-auto">
+     <div className='inline-flex gap-4'>
+     <Link href="/">Home
+      </Link>
+      <Link href="/hop">Shop
+      </Link>
+
        <Link href="/cart">
-        <div className="cart-icon">
-        {cartItemCount > 0 && <span className="badge">{cartItemCount}</span>}
+        <div className="">
+
+        {cartItemCount > 0 && 
+          <span 
+            className="badge bg-orange-500 absolute flex items-center justify-center cart-font text-white rounded-full z-10 w-3 h-3">
+        {cartItemCount}</span>}
          <Image
               src="/cart.svg"
               alt="Vercel Logo"
@@ -28,32 +40,9 @@ const Nav = () => {
             />
         </div>
       </Link>
-        <p className="text-sky-600">{session.user.name}</p>
-        <button onClick={() => signOut()} className="text-red-600">
-          Sign Out
-        </button>
-      </div>
-    );
-  }
-  return (
-    <div>
-     <Link href="/cart">
-        <div className="cart-icon">
-          {cartItemCount > 0 && <span className="badge">{cartItemCount}</span>}
 
-          <Image
-              src="/cart.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={24}
-              height={24}
-              priority
-            />
-        </div>
-      </Link>
-    <button onClick={() => signIn()} className="text-green-600 ml-auto">
-      Sign In
-    </button>
+        <SigninButton />
+    </div>
   </div>
   );
 };
