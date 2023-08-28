@@ -3,31 +3,10 @@
 import { useDispatch } from 'react-redux';
 import Image from 'next/image'
 import { addToCart, adjustQuantity } from '../slices/cartSlice';
+import products from '@utils/productData'
 
 const Products = () =>{
 	const dispatch = useDispatch();
-
-
-	const products = [
-		{
-			id:1,
-			name:'Black Evening Dress',
-			description: "Make a statement of elegance while embracing sustainability with our eco-friendly black evening dress. This stunning gown is not only a fashion statement but also a conscious choice for the planet.",
-			image: "/images/dress1",
-			price: 100,
-			quantity: null,
-			category: "womens clothing"
-		},
-		{
-			id: 2,
-			name:'White Picnic Dress',
-			description: "Crafted with sustainable materials and designed for timeless beauty, it features intricate lace details, a flowing silhouette, and a touch of shimmer. Shine bright at any special occasion with a dress that reflects both your style and your commitment to a greener world.",
-			image: "/images/dress2",
-			price: 80,
-			quantity: null,
-			category: "womens clothing"
-		}
-	];
 
 	const handleAddToCart = (product) => {
 		console.log(product)
@@ -41,20 +20,24 @@ const Products = () =>{
 		<div>
 			<h2>Our Products</h2>
 			{products.map(product =>(
-				<div key={product.id}>
-					<h4>{product.name}</h4>
+				<div key={product.id} className='w-1/4 bg-gray-100 p-2 '>
+					<div className='flex justify-center'>
 					<Image
-              src={product.image}
-              alt={product.name}
-              width={40}
-              height={40}
-              priority
-            />
-					<p>{product.description}</p>
-					<h3>{product.price}</h3>
+              			src={product.image}
+              			alt={product.name}
+              			width={140}
+              			height={140}
+              			priority
+            		/>
+            		</div>
+            		<h4 className='font-bold text-lg'>{product.name}</h4>
+					<p className='text-sm'>{product.description}</p>
+					<h3 className='text-lg'>${product.price}</h3>
+
+					<div className=' inline-flex gap-2'>
 					<input
               			type="number"
-              			className='border'
+              			className='border w-2/12 text-center'
               			value={product.quantity}
               			onChange={e =>
                 			handleAdjustQuantity(product, parseInt(e.target.value))
@@ -62,8 +45,9 @@ const Products = () =>{
             		/>
 					<button 
 						onClick={() => handleAddToCart(product)}
-						className='bg-black text-white'
+						className='bg-black text-white w-10/12'
 						>Add</button>
+					</div>
 				</div>
 				))}
 		</div>

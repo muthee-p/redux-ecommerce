@@ -22,6 +22,57 @@ export default function Home() {
           <p className='text-xl text-grey-700'>
             You name it we got it. Clothes in town for everyone</p>
 
+        <div className='w-full inline-flex gap-2 px-24'>
+
+          <div className='bg-gray-50 w-1/3 p-4 flex flex-col items-center justify-center'>
+            <Image
+              src="/cart.svg"
+              alt="Vercel Logo"
+              className="dark:invert bg-gray-100 p-4 rounded-full"
+              width={24}
+              height={24}
+              priority
+            />
+            <p>Super Fast and Free Delivery</p>
+          </div>
+
+          <div className='w-1/3'>
+            <div className='bg-gray-50 p-4 gap-2 flex mb-2 items-center justify-center'>
+            <Image
+              src="/next.svg"
+              alt="Vercel Logo"
+              className=" bg-gray-100 p-4 rounded-full"
+              width={24}
+              height={24}
+              priority
+            />
+            <p>Non-contact Shipping</p>
+          </div>
+
+          <div className='bg-gray-50 p-4 flex gap-2 items-center justify-center'>
+            <Image
+              src="/cart.svg"
+              alt="Vercel Logo"
+              className="dark:invert bg-gray-100 p-4 rounded-full"
+              width={24}
+              height={24}
+              priority
+            />
+            <p>Money-back Guaranteed</p>
+          </div>
+          </div>
+          <div className='bg-gray-50 w-1/3 p-4 flex flex-col items-center justify-center'>
+            <Image
+              src="/cart.svg"
+              alt="Vercel Logo"
+              className="dark:invert bg-gray-100 p-4 rounded-full"
+              width={24}
+              height={24}
+              priority
+            />
+            <p>Super Secure Payment System</p>
+          </div>
+        </div>
           <Products />
       
           </div>
