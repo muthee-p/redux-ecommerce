@@ -9,9 +9,10 @@ import Link from 'next/link';
 const Cart = () => {
   return (
     <Provider store={store}>
-      <div className="flex min-h-screen flex-col items-center justify-between p-24">
-        <Nav />
-        <Link href='/'>Go back</Link>
+    <Nav />
+      <div className="flex min-h-screen flex-col items-center pt-24">
+        
+        <Link href='/'>Back</Link>
         <CartPage />
       </div>
     </Provider>

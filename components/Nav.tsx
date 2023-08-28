@@ -13,14 +13,14 @@ const Nav = () => {
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div className= 'fixed w-full px-20 py-4 flex justify-between backdrop-blur'>
+    <div className= 'fixed w-full px-20 py-8 z-10 flex justify-between backdrop-blur'>
       <Link href="/">YouShop
       </Link>
 
      <div className='inline-flex gap-4'>
-     <Link href="/">Home
+     <Link href="/" className='hover:text-orange-600 px-4'>Home
       </Link>
-      <Link href="/hop">Shop
+      <Link href="/shop" className='hover:text-orange-600 px-4 mr-4'>Shop
       </Link>
 
        <Link href="/cart">

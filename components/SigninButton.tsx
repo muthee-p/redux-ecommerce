@@ -18,7 +18,7 @@ const SigninButton = () => {
   }
   return (
     <button onClick={() => signIn()} 
-      className="bg-black text-white hover:bg-orange-600 ml-auto">
+      className="bg-black text-sm px-8 py-1 rounded-full text-white hover:bg-orange-600 ml-auto">
       Sign In
     </button>
   );

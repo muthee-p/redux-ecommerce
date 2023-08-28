@@ -5,6 +5,7 @@ import Nav from '@components/Nav';
 import Products from '@components/Products';
 import Image from 'next/image'
 import Footer from '@components/Footer';
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -15,13 +16,22 @@ export default function Home() {
 
         <Nav />
 
-        <div className='mt-20 px-24 bg-white'>
-          <h1 className='text-4xl font-bold '>
+        <div className='mt-[16rem] w-2/3 px-24 backdrop-blur-lg p-8 flex flex-col items-center justify-center '>
+        <div className=''>
+          <h1 className='text-8xl text-white font-serif text-center'>
             Wear the best
           </h1>
-          <p className='text-xl text-grey-700'>
-            You name it we got it. Clothes in town for everyone</p>
+          <p className=' text-gray-900 py-8 px-16'>
+            Discover a curated collection that transcends trends, embracing both the classic and the contemporary. From graceful silhouettes to intricate details, our passion for style is evident in every stitch.
+            </p>
+            <Link href='/shop' className='bg-teal-900 ml-16 px-8 py-2 text-sm text-white rounded-full'>
+              Shop Now -->
+            </Link>
+          </div>
+        </div>
+        </div>
 
+        <section className='p-16'>
         <div className='w-full inline-flex gap-2 px-24'>
 
           <div className='bg-gray-50 w-1/3 p-4 flex flex-col items-center justify-center'>
@@ -75,8 +85,8 @@ export default function Home() {
         </div>
           <Products />
       
-          </div>
-        </div>
+          
+        </section>
         <Footer />
       </main>
     </Provider>
