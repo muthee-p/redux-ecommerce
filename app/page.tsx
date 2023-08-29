@@ -31,55 +31,63 @@ export default function Home() {
         </div>
         </div>
 
-        <section className='p-16'>
-        <div className='w-full inline-flex gap-2 px-24'>
+        <section className='p-16 text-sm'>
+        <div className='w-full inline-flex gap-2 px-36'>
 
-          <div className='bg-gray-50 w-1/3 p-4 flex flex-col items-center justify-center'>
+          <div className='bg-gray-50 w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
+            <div className='bg-gray-100 p-4 rounded-full mb-2'>
             <Image
-              src="/cart.svg"
-              alt="Vercel Logo"
-              className="dark:invert bg-gray-100 p-4 rounded-full"
-              width={24}
-              height={24}
+              src="/truck.svg"
+              alt="truck Logo"
+              className=""
+              width={34}
+              height={34}
               priority
             />
+            </div>
             <p>Super Fast and Free Delivery</p>
           </div>
 
           <div className='w-1/3'>
-            <div className='bg-gray-50 p-4 gap-2 flex mb-2 items-center justify-center'>
+            <div className='bg-gray-50 p-4 rounded-md gap-2 flex mb-2 items-center justify-center'>
+            <div className='bg-gray-100 p-4 rounded-full'>
             <Image
-              src="/next.svg"
-              alt="Vercel Logo"
-              className=" bg-gray-100 p-4 rounded-full"
+              src="/shield.svg"
+              alt="shield Logo"
+              className=" "
               width={24}
               height={24}
               priority
             />
+            </div>
             <p>Non-contact Shipping</p>
           </div>
 
-          <div className='bg-gray-50 p-4 flex gap-2 items-center justify-center'>
+          <div className='bg-gray-50 p-4 flex gap-2 rounded-md items-center justify-center'>
+            <div className='bg-gray-100 p-4 rounded-full'>
             <Image
-              src="/cart.svg"
-              alt="Vercel Logo"
-              className="dark:invert bg-gray-100 p-4 rounded-full"
+              src="/money.svg"
+              alt="Money-back Logo"
+              className=""
               width={24}
               height={24}
               priority
             />
+            </div>
             <p>Money-back Guaranteed</p>
           </div>
           </div>
-          <div className='bg-gray-50 w-1/3 p-4 flex flex-col items-center justify-center'>
+          <div className='bg-gray-50 w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
+            <div className='bg-gray-100 p-4 rounded-full mb-2'>
             <Image
-              src="/cart.svg"
-              alt="Vercel Logo"
-              className="dark:invert bg-gray-100 p-4 rounded-full"
+              src="/card.svg"
+              alt="Card Logo"
+              className=""
               width={24}
               height={24}
               priority
             />
+            </div>
             <p>Super Secure Payment System</p>
           </div>
         </div>

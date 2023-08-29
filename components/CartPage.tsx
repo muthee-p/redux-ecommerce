@@ -58,19 +58,19 @@ const CartPage = () =>{
 
 	
 	return(
-		<div className= 'flex border-t border-gray-600 pt-2'>
-		<div className='w-2/3'>
+		<div className= 'flex flex flex-col md:flex-row border-t border-gray-600 pt-2'>
+		<div className='md:w-2/3 '>
 			<h2 className='font-semibold py-4'>Shopping Cart</h2>
-			<table className=' mr-8 text-sm'>
+			<table className=' md: mr-8 text-sm'>
 				<thead>
 					<tr>
-						<th className='w-20 text-center'></th>
-						<th className='w-20 text-center'></th>
+						<th className='md:w-20 text-center'></th>
+						<th className='md:md:w-20 text-center'></th>
 						<th className='w-32 text-center'>Product</th>
-						<th className='w-20 text-center'>Price</th>
-						<th className='w-20 text-center'></th>
-						<th className='w-20 text-center'>Quantity</th>
-						<th className='w-20 text-center'>Subtotal</th>
+						<th className='md:md:w-20 text-center'>Price</th>
+						<th className='md:md:w-20 text-center'></th>
+						<th className='md:md:w-20 text-center'>Quantity</th>
+						<th className='md:md:w-20 text-center'>Subtotal</th>
 
 					</tr>
 				</thead>
@@ -79,13 +79,13 @@ const CartPage = () =>{
 				
 				
 					<tr>
-						<td className='w-20 text-center py-4'>
+						<td className='md:w-20 text-center py-4'>
 							<button 
 								onClick={() => handleRemoveFromCart(item)}
 								className=''
 								>X</button>
 						</td>
-						<td className='w-20 text-center py-4'>
+						<td className='md:w-20 text-center py-4'>
 							<Image
               					src={item.image}
               					alt={item.name}
@@ -94,9 +94,9 @@ const CartPage = () =>{
               					priority
             				/>
 						</td>
-						<td className='w-32 text-center py-4'>{item.name}</td>
-						<td className='w-20 text-center p-4'>{item.price}</td>
-						<td className='w-20 text-center py-4'>
+						<td className='md:w-32 text-center py-4'>{item.name}</td>
+						<td className='md:w-20 text-center p-4'>{item.price}</td>
+						<td className='md:w-20 text-center py-4'>
 							<input
               					type="number"
               					placeholder='1'
@@ -107,8 +107,8 @@ const CartPage = () =>{
               					}
             				/>
 						</td>
-						<td className='w-20 text-center py-4'>{item.quantity}</td>
-						<td className='w-20 text-center py-4'>{item.totalPrice}</td>
+						<td className='md:w-20 text-center py-4'>{item.quantity}</td>
+						<td className='md:w-20 text-center py-4'>{item.totalPrice}</td>
 					</tr>
 				</tbody>
 					
@@ -116,7 +116,7 @@ const CartPage = () =>{
 				))}
 			</table>
 
-	          <div className='p-8 text-sm'>
+	          <div className='p-8 text-sm inline-flex'>
 	          Coupon Code
 	            <input
 	              type="text"
@@ -127,19 +127,19 @@ const CartPage = () =>{
 	              onChange={e => setCouponCode(e.target.value)}
 	            />
 
-	            <Link href='/' className= 'bg-black text-white px-4 py-1 ml-16'>&larr;  Continue Shopping</Link>
+	            <Link href='/' className= 'bg-black text-white px-4 py-1 md:ml-16'>&larr;  Continue Shopping</Link>
 	          </div>
 			</div>
 
 
-			<div className='w-1/3 border-l p-8 bg-white text-sm' >
+			<div className=' w-full md:w-1/3 md:border-l p-8 bg-white text-sm' >
 			<h4 className='pb-8 font-semibold'>Cart total</h4>
 			<table className='flex items-center flex-col font-mono '>
 			
 				<tbody>
 					<tr className='w-full border-y border-gray-400 py-4'>
-						<td className='w-40 py-4'>Subtotal</td>
-						<td className='w-60 text-right py-4'>${totalCost.toFixed(2)}</td>
+						<td className='md:w-40 py-4'>Subtotal</td>
+						<td className='md:w-60 text-right py-4'>${totalCost.toFixed(2)}</td>
 					</tr>
 					
 					<tr>

@@ -18,7 +18,7 @@ const Products = () =>{
 	}
 	
 	return(
-		<div className='px-16 pt-28 pb-16'>
+		<div className='px-16 pt-16 pb-16'>
 			<div className='px-24 py-8 inline-flex gap-4 justify-center w-full text-sm'>
 				<Link href='/' className='bg-orange-600 py-1 px-4 rounded-full'>All Categories</Link>
 				<Link href='/' className='border border-black py-1 px-4 rounded-full'>Mens Clothing</Link>
@@ -33,8 +33,8 @@ const Products = () =>{
 					<Image
               			src={product.image}
               			alt={product.name}
-              			width={220}
-              			height={220}
+              			width={240}
+              			height={240}
               			priority
             		/>
             		</div>
