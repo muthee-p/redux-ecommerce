@@ -6,11 +6,11 @@ const SigninButton = () => {
 
   if (session && session.user) {
     return (
-      <div className="flex gap-4 ml-auto">
-        <p className="text-orange-600">Hello, {session.user.name}</p>
+      <div className="flex gap-4 ml-auto pt-1">
+        <p className="text-orange-600 text-sm">Hello, {session.user.name}</p>
         <button 
           onClick={() => signOut()} 
-          className="border border-black rounded-full px-4 py">
+          className="border border-black text-black text-sm rounded-full px-4 py">
           Sign Out
         </button>
       </div>

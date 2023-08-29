@@ -13,8 +13,17 @@ const Nav = () => {
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div className= 'fixed w-full px-20 py-8 z-10 flex justify-between backdrop-blur'>
-      <Link href="/">YouShop
+    <div className= 'fixed w-full text-gray-900 px-20 py-8 z-10 flex justify-between backdrop-blur'>
+      <Link href="/" className='inline-flex gap-2'>
+      <Image
+              src="/logo.svg"
+              alt="Cart Icon"
+              className="dark:invert"
+              width={24}
+              height={24}
+              priority
+            />
+      <h4 className='text-2xl font-serif text-gray-100 hover:text-orange-600' >YouShop</h4>
       </Link>
 
      <div className='inline-flex gap-4'>
@@ -32,7 +41,7 @@ const Nav = () => {
         {cartItemCount}</span>}
          <Image
               src="/cart.svg"
-              alt="Vercel Logo"
+              alt="Cart Icon"
               className="dark:invert"
               width={24}
               height={24}
