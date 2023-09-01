@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 interface CartItem {
   id: number;
   name: string;
+  image: string;
   price: number;
   quantity: number;
   totalPrice: number;
@@ -13,7 +14,7 @@ const cartSlice = createSlice({
 	initialState: [],
 	reducers: {
 		addToCart: (state, action) => {
-			const {id, name, price, quantity = 1 } = action.payload;
+			const {id, name, image, price, quantity = 1 } = action.payload;
 			
 			const existingItem = state.find(item => item.id === action.payload.id);
 			
@@ -22,7 +23,7 @@ const cartSlice = createSlice({
 				existingItem.totalPrice = roundToTwoDecimals(existingItem.price * existingItem.quantity);
 
 			}else{
-				state.push({id, name, price, quantity, totalPrice: price * quantity});
+				state.push({id, name, image, price, quantity, totalPrice: price * quantity});
 			}
 		},
 		removeFromCart: (state, action) => {
@@ -47,5 +48,5 @@ function roundToTwoDecimals(value) {
 	return Math.round(value * 100)/100;
 }
 
-export const { addToCart, removeFromCart, adjustQuantity, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, adjustQuantity, clearCart} = cartSlice.actions;
 export default cartSlice.reducer

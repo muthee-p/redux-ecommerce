@@ -31,8 +31,8 @@ export default function Home() {
         </div>
         </div>
 
-        <section className='p-16 text-sm'>
-        <div className='w-full inline-flex gap-2 px-36'>
+        <section className='py-16 text-sm'>
+        <div className='w-full inline-flex gap-2 px-52'>
 
           <div className='bg-gray-50 w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
             <div className='bg-gray-100 p-4 rounded-full mb-2'>

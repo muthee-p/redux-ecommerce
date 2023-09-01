@@ -14,6 +14,7 @@ const CartPage = () =>{
 	const dispatch = useDispatch();
 	const [shippingOption, setShippingOption] = useState('free');
   const [couponCode, setCouponCode] = useState('');
+  const [isCouponValid, setIsCouponValid] = useState(false);
   const shippingCosts = { flat: 10, pickup: 15 }
 	
 
@@ -54,7 +55,15 @@ const CartPage = () =>{
 		console.log(item)
 		dispatch(removeFromCart(item));
 	};
-	
+	const handleCouponChange = (e) => {
+  setCouponCode(e.target.value);
+};
+const validateCoupon = () => {
+ 
+  const isValid = "YOUSHOP"
+
+  setIsCouponValid(isValid);
+};
 
 	
 	return(
@@ -116,16 +125,21 @@ const CartPage = () =>{
 				))}
 			</table>
 
-	          <div className='p-8 text-sm inline-flex'>
-	          Coupon Code
+	          <div className='p-8 text-sm flex justify-between'>
+	          	<div className='inline-flex'>
 	            <input
 	              type="text"
 	              placeholder='YOUSHOP'
-	              className=' ml-4 py-1 px-4 text-center border text-sm'
+	              className=' mr-4 py-1 w-36 px-4 text-center border text-sm'
 	              value={couponCode}
 	              disabled={cartItems.length === 0}
-	              onChange={e => setCouponCode(e.target.value)}
+	             	onChange={handleCouponChange}
 	            />
+	            <button
+	            	className='bg-gray-300 text-gray-900 py-1 px-4 disabled:gray-100'
+	            	 disabled={cartItems.length === 0}
+	             onClick={validateCoupon}>Apply Coupon</button>
+  						</div>
 
 	            <Link href='/' className= 'bg-black text-white px-4 py-1 md:ml-16'>&larr;  Continue Shopping</Link>
 	          </div>
@@ -187,7 +201,9 @@ const CartPage = () =>{
 						 <td className='py-4'>Coupon</td>
 				          <td className='flex flex-col items-end py-4'>
 				              {couponCode}
-				              
+				          {isCouponValid === false && (
+    								<span className="text-red-500 ml-2">X</span>
+  						)		}
 				          </td>
 					</tr>
 					<tr className=' border-t border-gray-800'>
