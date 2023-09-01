@@ -13,7 +13,7 @@ const Cart = () => {
     
     <Nav />
    
-      <div className="flex min-h-screen flex-col p-24">
+      <div className="flex min-h-screen flex-col md:p-24 px-2 pt-24">
 
         <CartPage />
         

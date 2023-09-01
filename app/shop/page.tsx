@@ -13,7 +13,7 @@ const Shop = () =>{
     <Provider store={store}>
       <Nav/>
         <div className='bg-shop flex items-center justify-end w-full '>
-         <div className='flex items-start flex-col w-1/3 mr-24'>
+         <div className='flex items-start flex-col w-1/3 md:mr-24 mr-16'>
          
          <Image
               src="/shopping.svg"
@@ -23,7 +23,7 @@ const Shop = () =>{
               height={24}
               priority
             />
-           <h4 className='text-5xl font-bold text-gray-900'>
+           <h4 className='md:text-5xl text-3xl font-bold text-gray-900'>
             <span className='text-orange-600'>Elevate </span> Your Wardrobe with Timeless Elegance.</h4>
           
           </div>

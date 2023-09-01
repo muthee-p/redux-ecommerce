@@ -29,8 +29,8 @@ const PaymentPage = () => {
 
   return (
     <div className='flex flex-col justify-around p-24 items-center text-sm h-screen'>
-     <Link href='/' >Go Back</Link>
-     <div className='text-gray-500'>
+     <Link href='/cart' >&larr; Go Back</Link>
+     <div className='text-gray-500 text-xs'>
       <p>Card Number: 4242424242424242</p>
       <p>CVC: Any 3 digits</p>
       <p>Date: Any date in the future</p>

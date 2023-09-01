@@ -16,15 +16,15 @@ export default function Home() {
 
         <Nav />
 
-        <div className='mt-[16rem] w-2/3 px-24 backdrop-blur-lg p-8 flex flex-col items-center justify-center '>
+        <div className='md:mt-[16rem] mt-16 w-2/3 px-24 backdrop-blur-lg p-8 flex flex-col items-center justify-center '>
         <div className=''>
-          <h1 className='text-8xl text-white font-serif text-center'>
+          <h1 className='md:text-8xl text-5xl text-white font-serif text-center'>
             Wear the best
           </h1>
-          <p className=' text-gray-900 py-8 px-16'>
-            Discover a curated collection that transcends trends, embracing both the classic and the contemporary. From graceful silhouettes to intricate details, our passion for style is evident in every stitch.
+          <p className=' text-gray-900 py-8 md:px-16'>
+            Discover a curated collection that transcends trends, embracing both the classic and the contemporary. <span className='hidden md:block'>From graceful silhouettes to intricate details, our passion for style is evident in every stitch.</span>
             </p>
-            <Link href='/shop' className='bg-teal-900 ml-16 px-8 py-2 text-sm text-white rounded-full'>
+            <Link href='/shop' className='bg-black md:ml-16 px-4 md:px-8 py-2 text-sm text-white rounded-full'>
               Shop Now -->
             </Link>
           </div>
@@ -32,7 +32,7 @@ export default function Home() {
         </div>
 
         <section className='py-16 text-sm'>
-        <div className='w-full inline-flex gap-2 px-52'>
+        <div className='w-full inline-flex gap-2 md:px-52'>
 
           <div className='bg-gray-50 w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
             <div className='bg-gray-100 p-4 rounded-full mb-2'>
@@ -91,11 +91,13 @@ export default function Home() {
             <p>Super Secure Payment System</p>
           </div>
         </div>
+
           <Products />
-      
-          
+
         </section>
+
         <Footer />
+        
       </main>
     </Provider>
   )

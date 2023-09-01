@@ -2,8 +2,8 @@ import Link from 'next/link';
 const Footer = () => {
 
   return (
-    <div className='w-full bg-black text-white text-xs px-8 py-4 bottom-0 flex justify-around'>
-      <div className='flex flex-col w-1/5'>
+    <div className='w-full bg-black text-white text-xs md:px-8 px-4 py-4 bottom-0 flex justify-around'>
+      <div className='flex flex-col w-1/5 hidden md:block'>
       <h4 className='text-sm mb-2'>YouShop</h4>
       <p>Elevate Your Wardrobe with Timeless Elegance and Unparalleled Style.</p>
       </div>

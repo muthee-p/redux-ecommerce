@@ -4,6 +4,7 @@ import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '@slices/cartSlice';
+import Link from 'next/link'
 
 const CheckoutButton = () => {
   const { data: session } = useSession();
@@ -18,9 +19,9 @@ const CheckoutButton = () => {
     return (
       <div className="flex gap-4 ml-auto pt-1">
         
-        <button className='bg-black text-white mt-4 w-full text-sm py-1 disabled:bg-gray-600'
+        <Link href='payment' className='bg-black text-center text-white mt-4 w-full text-sm py-1 disabled:bg-gray-600'
           disabled={cartItems.length === 0}
-          onClick={handleCheckOut}>Checkout</button>
+          onClick={handleCheckOut}>Checkout</Link>
       </div>
     );
   }

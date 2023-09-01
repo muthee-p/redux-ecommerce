@@ -13,7 +13,7 @@ const Nav = () => {
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div className= 'fixed w-full text-gray-900 px-20 py-8 z-10 flex justify-between backdrop-blur'>
+    <div className= 'fixed w-full text-gray-900 px-2 md:px-20 py-8 z-10 flex justify-between backdrop-blur'>
       <Link href="/" className='inline-flex gap-2'>
       <Image
               src="/logo.svg"
@@ -23,7 +23,7 @@ const Nav = () => {
               height={24}
               priority
             />
-      <h4 className='text-2xl font-serif text-gray-100 hover:text-orange-600' >YouShop</h4>
+      <h4 className='md:text-2xl text-lg font-serif text-gray-100 hover:text-orange-600' >YouShop</h4>
       </Link>
 
      <div className='inline-flex gap-4'>
