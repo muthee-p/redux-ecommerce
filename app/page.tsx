@@ -16,7 +16,7 @@ export default function Home() {
 
         <Nav />
 
-        <div className='md:mt-[16rem] mt-16 w-2/3 px-24 backdrop-blur-lg p-8 flex flex-col items-center justify-center '>
+        <div className='md:mt-[16rem] mt-16 w-2/3 md:px-24 backdrop-blur-lg p-8 flex flex-col items-center justify-center '>
         <div className=''>
           <h1 className='md:text-8xl text-5xl text-white font-serif text-center'>
             Wear the best
@@ -32,9 +32,9 @@ export default function Home() {
         </div>
 
         <section className='py-16 text-sm'>
-        <div className='w-full inline-flex gap-2 md:px-52'>
+        <div className='w-full flex md:flex-row flex-col gap-2 md:px-52'>
 
-          <div className='bg-gray-50 w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
+          <div className='bg-gray-50 md:w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
             <div className='bg-gray-100 p-4 rounded-full mb-2'>
             <Image
               src="/truck.svg"
@@ -48,8 +48,8 @@ export default function Home() {
             <p>Super Fast and Free Delivery</p>
           </div>
 
-          <div className='w-1/3'>
-            <div className='bg-gray-50 p-4 rounded-md gap-2 flex mb-2 items-center justify-center'>
+          <div className='md:w-1/3'>
+            <div className='bg-gray-50 p-4 rounded-md gap-2 flex flex-col md:flex-row mb-2 items-center justify-center'>
             <div className='bg-gray-100 p-4 rounded-full'>
             <Image
               src="/shield.svg"
@@ -63,7 +63,7 @@ export default function Home() {
             <p>Non-contact Shipping</p>
           </div>
 
-          <div className='bg-gray-50 p-4 flex gap-2 rounded-md items-center justify-center'>
+          <div className='bg-gray-50 p-4 flex flex-col md:flex-row  gap-2 rounded-md items-center justify-center'>
             <div className='bg-gray-100 p-4 rounded-full'>
             <Image
               src="/money.svg"
@@ -77,7 +77,7 @@ export default function Home() {
             <p>Money-back Guaranteed</p>
           </div>
           </div>
-          <div className='bg-gray-50 w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
+          <div className='bg-gray-50 md:w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
             <div className='bg-gray-100 p-4 rounded-full mb-2'>
             <Image
               src="/card.svg"
@@ -97,7 +97,7 @@ export default function Home() {
         </section>
 
         <Footer />
-        
+
       </main>
     </Provider>
   )

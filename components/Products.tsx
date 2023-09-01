@@ -34,7 +34,7 @@ const Products = () =>{
 	
 	return(
 		<div className='px-24 pt-16 pb-16'>
-		 <div className='flex justify-center'>
+		 <div className='flex justify-center '>
         {categories.map(category => (
         	
           <button
@@ -47,28 +47,15 @@ const Products = () =>{
          
         ))}
       </div>
-			{/*<div className='px-24 py-8 inline-flex gap-4 justify-center w-full text-sm'>
-				<button 
-					className=' py-1 px-4 rounded-full'
-					onClick={() => handleCategoryClick('All')}
-					>All Categories
-				</button>
-				<button
-					className=' py-1 px-4 rounded-full'
-					onClick={() => handleCategoryClick('womens clothing')}
-					>Women's Clothing
-				</button>
-				<Link href='/' className='border border-black py-1 px-4 rounded-full'>Womens Categories</Link>
-				<Link href='/' className='border border-black py-1 px-4 rounded-full'>Shoes</Link>
-				<Link href='/' className='border border-black py-1 px-4 rounded-full'>Accessories</Link>
-			</div>*/}
+			
 			<div className='products-grid px-8'>
 			{filteredProducts.map(product =>(
-				<div key={product.id} className='rounded-sm bg-white p-2 '>
+				<div key={product.id} className='rounded-sm bg-white p-2 w-1/2 '>
 					<div className='flex justify-center mb-4'>
 					<Image
               			src={product.image}
               			alt={product.name}
+              			className=''
               			width={240}
               			height={240}
               			priority
