@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeFromCart, adjustQuantity, clearCart } from '../slices/cartSlice';
 import CheckoutButton from './CheckoutButton'
 
+
 const CartPage = () =>{
 
 
