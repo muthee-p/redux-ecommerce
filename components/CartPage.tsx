@@ -14,10 +14,10 @@ const CartPage = () =>{
 
 	const cartItems = useSelector(state => state.cart)
 	const dispatch = useDispatch();
-	 const shippingOption = useSelector((state) => state.cart.shippingOption); // Access shipping option from Redux store
-  const couponCode = useSelector((state) => state.cart.couponCode);
-	// const [shippingOption, setShippingOption] = useState('free');
-  // const [couponCode, setCouponCode] = useState('');
+	//  const shippingOption = useSelector((state) => state.cart.shippingOption); // Access shipping option from Redux store
+  // const couponCode = useSelector((state) => state.cart.couponCode);
+	const [shippingOption, setShippingOption] = useState('free');
+  const [couponCode, setCouponCode] = useState('');
   const [isCouponValid, setIsCouponValid] = useState(false);
   const shippingCosts = { flat: 10, pickup: 15 }
 	
@@ -100,8 +100,6 @@ const validateCoupon = () => {
 				</thead>
 			{cartItems.map(item =>(
 				<tbody key={item.id} className='border-b border-gray-400' >
-				
-				
 					<tr>
 						<td className='md:w-20 text-center py-4'>
 							<button 
@@ -163,7 +161,13 @@ const validateCoupon = () => {
 			</div>
 
 			
-  			<CartTotal />
+  			<CartTotal 
+  				cartItems={cartItems} 
+  				shippingOption={shippingOption} 
+  				setShippingOption={setShippingOption} 
+  				couponCode={couponCode}
+  				totalCost={totalCost} 
+  				/>
 			
 
 			{/*<div className=' w-full my-8 md:w-1/3 md:border-l p-8 bg-white text-sm' >

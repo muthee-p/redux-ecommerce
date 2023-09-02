@@ -2,15 +2,15 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Link from 'next/link';
-import CartTotal from './CartTotal'
-import { useSelector } from 'react-redux';
+import Receipt from './Receipt'
+//import { useSelector } from 'react-redux';
 
 
 
-const PaymentPage = () => {
+const PaymentPage = ({calculateTotalCost, cartItems, shippingOption, setShippingOption, couponCode, totalCost}) => {
   const stripe = useStripe();
   const elements = useElements();
-   const cartItems = useSelector((state) => state.cart.cartItems);
+  //const cartItems = useSelector((state) => state.cart.cartItems);
   const [showReceipt, setShowReceipt] = useState(false);
   const [error, setError] = useState(null);
 
@@ -28,20 +28,24 @@ const PaymentPage = () => {
       setError(result.error.message);
     } else {
       setShowReceipt(true);
+      console.log(calculateTotalCost)
       console.log(result.token);
     }
   };
 
   return (
-    <div className='flex flex-col justify-around p-24 items-center text-sm h-screen'>
-     <Link href='/cart' >&larr; Go Back</Link>
-     <div className='text-gray-500 text-xs'>
+    <div className='fixed top-0 left-0 backdrop-blur w-full h-screen z-10 flex justify-center items-center'>
+    <div className=' bg-gray-100 w-1/3 p-4  flex flex-col justify-around items-center text-sm'>
+     <Link href='/cart' className='mb-8' >&larr; Go Back</Link>
+     <p className='mb-8'>Your Total is $ {calculateTotalCost}</p>
+     <div className='text-gray-500 text-xs mb-8'>
+        <h4> Dummy data to use</h4>
         <p>Card Number: 4242424242424242</p>
-        <p>CVC: Any 3 digits</p>
         <p>Date: Any date in the future</p>
+        <p>CVC: Any 3 digits</p>
         <p>Zip: 90001</p>
      </div>
-    <form onSubmit={handleSubmit} className='flex flex-col w-1/3'>
+    <form onSubmit={handleSubmit} className='flex flex-col w-full'>
 
       <CardElement />
 
@@ -49,11 +53,17 @@ const PaymentPage = () => {
       <button type="submit" className=' mt-8 w-full bg-black text-white py-2 '>Pay</button>
     </form>
      {showReceipt && (
-      <CartTotal 
+        <Receipt
           cartItems={cartItems} 
           shippingOption={shippingOption} 
-          couponCode={couponCode} />
+          setShippingOption={setShippingOption} 
+          couponCode={couponCode}
+          totalCost={totalCost} 
+          calculateTotalCost={calculateTotalCost} 
+          onClose={() => setShowReceipt(false)}
+        />
       )}
+    </div>
     </div>
   );
 };

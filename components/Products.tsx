@@ -50,7 +50,7 @@ const Products = () =>{
 			
 			<div className='products-grid px-8'>
 			{filteredProducts.map(product =>(
-				<div key={product.id} className='rounded-sm bg-white p-2 w-1/2 '>
+				<div key={product.id} className='rounded-sm bg-white p-2 '>
 					<div className='flex justify-center mb-4'>
 					<Image
               			src={product.image}
