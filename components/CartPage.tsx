@@ -4,8 +4,9 @@ import {useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, adjustQuantity, clearCart } from '../slices/cartSlice';
-import CheckoutButton from './CheckoutButton'
+import { removeFromCart, adjustQuantity, finalCartInfo } from '../slices/cartSlice';
+
+import CartTotal from './CartTotal'
 
 
 const CartPage = () =>{
@@ -13,8 +14,10 @@ const CartPage = () =>{
 
 	const cartItems = useSelector(state => state.cart)
 	const dispatch = useDispatch();
-	const [shippingOption, setShippingOption] = useState('free');
-  const [couponCode, setCouponCode] = useState('');
+	 const shippingOption = useSelector((state) => state.cart.shippingOption); // Access shipping option from Redux store
+  const couponCode = useSelector((state) => state.cart.couponCode);
+	// const [shippingOption, setShippingOption] = useState('free');
+  // const [couponCode, setCouponCode] = useState('');
   const [isCouponValid, setIsCouponValid] = useState(false);
   const shippingCosts = { flat: 10, pickup: 15 }
 	
@@ -49,22 +52,33 @@ const CartPage = () =>{
     return total;
   };
 
+  const handlePaymentSuccess = () => {
+   
+    const totalCost = calculateTotalCost();
+
+    dispatch(finalCartInfo({ totalCost, couponCode, shippingOption }));
+ };
+
 	const handleAdjustQuantity = (item, newQuantity) =>{
 		dispatch(adjustQuantity({...item, quantity:  newQuantity}))
-	}
+	};
+
 	const handleRemoveFromCart = item => {
 		console.log(item)
 		dispatch(removeFromCart(item));
 	};
+
 	const handleCouponChange = (e) => {
   setCouponCode(e.target.value);
 };
+
 const validateCoupon = () => {
  
   const isValid = "YOUSHOP"
 
   setIsCouponValid(isValid);
 };
+
 
 	
 	return(
@@ -148,8 +162,11 @@ const validateCoupon = () => {
 	          </div>
 			</div>
 
+			
+  			<CartTotal />
+			
 
-			<div className=' w-full my-8 md:w-1/3 md:border-l p-8 bg-white text-sm' >
+			{/*<div className=' w-full my-8 md:w-1/3 md:border-l p-8 bg-white text-sm' >
 			<h4 className='pb-8 font-semibold'>Cart total</h4>
 			<table className='flex items-center flex-col font-mono '>
 			
@@ -207,6 +224,9 @@ const validateCoupon = () => {
 				          {isCouponValid === false && (
     								<span className="text-red-500 ml-2">X</span>
   						)		}
+				          {isCouponValid === true && (
+    								<span className="text-green-500 ml-2">$10</span>
+  						)		}
 				          </td>
 					</tr>
 					<tr className=' border-t border-gray-800'>
@@ -219,7 +239,7 @@ const validateCoupon = () => {
 				 
 				<CheckoutButton />
 				
-			</div>
+			</div>*/}
 		</div>
 		)
 

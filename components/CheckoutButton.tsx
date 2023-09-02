@@ -11,9 +11,9 @@ const CheckoutButton = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart);
 
-  const handleCheckOut = () =>{
-    dispatch(clearCart());
-  }
+  // const handleCheckOut = () =>{
+  //   dispatch(clearCart());
+  // }
 
   if (session && session.user) {
     return (
@@ -21,7 +21,8 @@ const CheckoutButton = () => {
         
         <Link href='payment' className='bg-black text-center text-white mt-4 w-full text-sm py-1 disabled:bg-gray-600'
           disabled={cartItems.length === 0}
-          onClick={handleCheckOut}>Checkout</Link>
+          //onClick={handleCheckOut}
+          >Checkout</Link>
       </div>
     );
   }
