@@ -22,9 +22,9 @@ export default function Home() {
             Wear the best
           </h1>
           <p className=' text-gray-900 py-8 md:px-16'>
-            Discover a curated collection that transcends trends, embracing both the classic and the contemporary. <span className='hidden md:block'>From graceful silhouettes to intricate details, our passion for style is evident in every stitch.</span>
+            Discover a curated collection that transcends trends, embracing both the classic and the contemporary.<span className='hidden md:block'>From graceful silhouettes to intricate details, our passion for style is evident in every stitch.</span>
             </p>
-            <Link href='/shop' className='bg-black md:ml-16 px-4 md:px-8 py-2 text-sm text-white rounded-full'>
+            <Link href='/shop' className='bg-teal-900 md:ml-16 px-4 md:px-8 py-2 text-sm text-white rounded-full'>
               Shop Now -->
             </Link>
           </div>

@@ -13,26 +13,19 @@ const cartSlice = createSlice({
 	name: 'cart',
 	initialState: [],
 	reducers: {
-addToCart: (state, action) => {
-  const { id, name, image, price, quantity = 1 } = action.payload;
+		addToCart: (state, action) => {
+			const {id, name, image, price, quantity = 1 } = action.payload;
+			
+			const existingItem = state.find(item => item.id === action.payload.id);
+			
+			if(existingItem){
+				existingItem.quantity += quantity;
+				existingItem.totalPrice = roundToTwoDecimals(existingItem.price * existingItem.quantity);
 
-  // Check if the item already exists in the cart
-  if (state.hasOwnProperty(id)) {
-    // Item already exists, update its quantity and total price
-    state[id].quantity += quantity;
-    state[id].totalPrice = roundToTwoDecimals(state[id].price * state[id].quantity);
-  } else {
-    // Item doesn't exist, create a new entry
-    state[id] = {
-      id,
-      name,
-      image,
-      price,
-      quantity,
-      totalPrice: roundToTwoDecimals(price * quantity),
-    };
-  }
-},
+			}else{
+				state.push({id, name, image, price, quantity, totalPrice: price * quantity});
+			}
+		},
 
 		removeFromCart: (state, action) => {
 			return state.filter(item => item.id !== action.payload.id);

@@ -33,14 +33,14 @@ const Products = () =>{
 
 	
 	return(
-		<div className='px-24 pt-16 pb-16'>
-		 <div className='flex justify-center '>
+		<div className='px-24 md:pt-16 pt-8 pb-16'>
+		 <div className='flex md:justify-center w-screen md:w-full overflow-x-scroll md:overflow-x-hidden'>
         {categories.map(category => (
         	
           <button
             key={category}
             onClick={() => handleCategoryClick(category)}
-            className={`py-1  mx-2 rounded-full w-36 text-sm mb-12 hover:bg-orange-600 hover:border-0 ${selectedCategory === category ? 'bg-orange-600' : 'border border-black'}`}
+            className={`py-1 mx-2 rounded-full px-4 md:px-0  md:w-36 text-sm mb-8 md:mb-12 hover:bg-orange-600 hover:border-0 ${selectedCategory === category ? 'bg-orange-600' : 'border border-black'}`}
           >
             {category}
           </button>
@@ -50,8 +50,8 @@ const Products = () =>{
 			
 			<div className='products-grid px-8'>
 			{filteredProducts.map(product =>(
-				<div key={product.id} className='rounded-sm bg-white p-2 '>
-					<div className='flex justify-center mb-4'>
+				<div key={product.id} className='rounded-sm bg-white p-2'>
+					<div className='flex justify-center mb-4 '>
 					<Image
               			src={product.image}
               			alt={product.name}
@@ -61,10 +61,12 @@ const Products = () =>{
               			priority
             		/>
             		</div>
-            		<h4 className='font-bold text-lg mb-2'>{product.name}</h4>
-					<p className='text-sm mb-2'>{product.description}</p>
-					<h3 className='text-lg mb-2'>${product.price}</h3>
-
+          <div className='flex flex-col bg-red-100 md:h-64'>
+          <div className='grow'>
+          <h4 className='font-bold text-lg mb-2'>{product.name}</h4>
+					<p className='text-sm py-2 text-gray-800'>{product.description}</p>
+					<h3 className='text-lg  pt-2 pb-4 font-semibold'>${product.price}</h3>
+					</div>
 					<div className=' inline-flex gap-2'>
 					<input
               			type="number"
@@ -77,10 +79,10 @@ const Products = () =>{
             		/>
 					<button 
 						onClick={() => handleAddToCart(product)}
-						className='bg-black text-white w-10/12 text-sm'
+						className='bg-black text-white w-10/12 text-sm py-1'
 						>Add to Cart</button>
 					</div>
-
+					</div>
 				</div>
 				))}
 			</div>

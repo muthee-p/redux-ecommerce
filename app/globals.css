@@ -36,6 +36,16 @@
     background: #555; /* Change this to the hover color you prefer */
   }
 
+  .no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  /* Hide the scrollbar thumb (draggable part) */
+  .no-scrollbar::-webkit-scrollbar-thumb {
+    display: none; /* WebKit-based browsers like Chrome and Safari */
+  }
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

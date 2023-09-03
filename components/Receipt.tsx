@@ -1,9 +1,9 @@
 'use client'
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { clearCart } from '@slices/cartSlice';
 import Link from 'next/link'
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import ReceiptDownload from './ReceiptDownload'
 
 const Receipt = ({calculateTotalCost, shippingValue, cartItems, shippingOption, setShippingOption, couponCode, totalCost}) => {
@@ -15,7 +15,7 @@ const Receipt = ({calculateTotalCost, shippingValue, cartItems, shippingOption, 
   const orderNumber = Array.from({ length: 3 }, () => Math.floor(Math.random() * 100) + 1);
   const paymentId = Array.from({ length: 8 }, () => Math.floor(Math.random() * 100) + 1);
   
-   const handleHome = () =>{
+   const handleHome = (event) =>{
     event.preventDefault();    
     dispatch(clearCart());
   }
@@ -76,7 +76,7 @@ const Receipt = ({calculateTotalCost, shippingValue, cartItems, shippingOption, 
                 <span className="ml-2">X</span>
               )}
             </td>
-              </td>
+              
             </tr>
             <tr>
               <td>Total</td>
@@ -111,23 +111,27 @@ const Receipt = ({calculateTotalCost, shippingValue, cartItems, shippingOption, 
             <p>THANK YOU FOR SHIPPING WITH US</p>
             <p>YOU SHOP</p>
           </div>
+
           <div className='inline-flex'>
-          <Link href='/' 
-            onClick={handleHome}
-            className='bg-black py-1 px-2 text-white'> 
-            &larr; Home
-          </Link>
-          <ReceiptDownload
+            <Link href='/' 
+              onClick={handleHome}
+              className='bg-black py-1 px-2 text-white'> 
+              &larr; Home
+            </Link>
+
+            <ReceiptDownload
             cartItems={cartItems} 
-          shippingOption={shippingOption} 
-          setShippingOption={setShippingOption} 
-          couponCode={couponCode}
-          totalCost={totalCost} 
-          calculateTotalCost={calculateTotalCost} 
-          shippingValue={shippingValue}
-          formattedDate={formattedDate}
-          orderNumber={orderNumber}
-          /> 
+            shippingOption={shippingOption} 
+            setShippingOption={setShippingOption} 
+            couponCode={couponCode}
+            totalCost={totalCost} 
+            calculateTotalCost={calculateTotalCost} 
+            shippingValue={shippingValue}
+            formattedDate={formattedDate}
+            orderNumber={orderNumber}
+            paymentId={paymentId}
+            /> 
+    
           </div>
     </div>
     </div>
