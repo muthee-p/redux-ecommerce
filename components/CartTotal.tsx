@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import CheckoutButton from './CheckoutButton'
 
 const CartTotal = ({ cartItems, shippingOption, setShippingOption, couponCode, totalCost }) => {
-  const shippingCosts = { flat: 10, pickup: 15 };
+  const shippingCosts = { free: 0, flat: 10, pickup: 15 };
 
   const calculatedTotalCost = () => {
     let total = cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
@@ -22,7 +22,20 @@ const CartTotal = ({ cartItems, shippingOption, setShippingOption, couponCode, t
     return total.toFixed(2);
   };
 
-  const calculateTotalCost = calculatedTotalCost(); 
+  const displayShippingCost = () => {
+  if (shippingOption === 'flat') {
+    return shippingCosts.flat;
+  } else if (shippingOption === 'pickup') {
+    return shippingCosts.pickup;
+  }
+  else if (shippingOption === 'free') {
+    return shippingCosts.free;
+  }
+};
+
+
+  const calculateTotalCost = calculatedTotalCost();
+  const shippingValue= displayShippingCost(); 
 
   return (
     <div className="w-full my-8 md:w-1/3 md:border-l p-8 bg-white text-sm">
@@ -77,7 +90,7 @@ const CartTotal = ({ cartItems, shippingOption, setShippingOption, couponCode, t
             <td className="flex flex-col items-end py-4">
               {couponCode}
               {couponCode === 'YOUSHOP' ? (
-                <span className="text-green-500 ml-2">$10</span>
+                <span className="text-green-500 ml-2">- $10</span>
               ) : (
                 <span className="text-red-500 ml-2">X</span>
               )}
@@ -96,7 +109,9 @@ const CartTotal = ({ cartItems, shippingOption, setShippingOption, couponCode, t
           couponCode={couponCode}
           totalCost={totalCost}
           calculateTotalCost={calculateTotalCost} 
+          shippingValue={shippingValue}
            />
+          
     </div>
   );
 };

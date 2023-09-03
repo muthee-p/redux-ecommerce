@@ -7,7 +7,7 @@ import Receipt from './Receipt'
 
 
 
-const PaymentPage = ({calculateTotalCost, cartItems, shippingOption, setShippingOption, couponCode, totalCost}) => {
+const PaymentPage = ({calculateTotalCost, shippingValue, cartItems, shippingOption, setShippingOption, couponCode, totalCost}) => {
   const stripe = useStripe();
   const elements = useElements();
   //const cartItems = useSelector((state) => state.cart.cartItems);
@@ -36,7 +36,12 @@ const PaymentPage = ({calculateTotalCost, cartItems, shippingOption, setShipping
   return (
     <div className='fixed top-0 left-0 backdrop-blur w-full h-screen z-10 flex justify-center items-center'>
     <div className=' bg-gray-100 w-1/3 p-4  flex flex-col justify-around items-center text-sm'>
-     <Link href='/cart' className='mb-8' >&larr; Go Back</Link>
+     <Link href='/cart' 
+      className='mb-8' 
+      onClick={(e) => { e.preventDefault();}}
+      >
+      &larr; Go Back
+     </Link>
      <p className='mb-8'>Your Total is $ {calculateTotalCost}</p>
      <div className='text-gray-500 text-xs mb-8'>
         <h4> Dummy data to use</h4>
@@ -59,7 +64,8 @@ const PaymentPage = ({calculateTotalCost, cartItems, shippingOption, setShipping
           setShippingOption={setShippingOption} 
           couponCode={couponCode}
           totalCost={totalCost} 
-          calculateTotalCost={calculateTotalCost} 
+          calculateTotalCost={calculateTotalCost}
+          shippingValue={shippingValue} 
           onClose={() => setShowReceipt(false)}
         />
       )}
