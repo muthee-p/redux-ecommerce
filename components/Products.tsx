@@ -1,28 +1,37 @@
 'use client'
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Image from 'next/image'
 import { addToCart, adjustQuantity } from '../slices/cartSlice';
 import products from '@utils/productData'
-import Link from 'next/link';
 import { useState } from 'react';
 
+interface Product {
+	id: number;
+	name: string;
+	description: string;
+	price: number;
+	image: string;
+	category: string;
+	quantity: number | null;
+  }
 
 const Products = () =>{
 	const dispatch = useDispatch();
-	const [productCategory, setProductCategory] = useState(products)
-	const [selectedCategory, setSelectedCategory] = useState('All');
+	const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-	const handleAddToCart = (product) => {
-		console.log(product)
-		dispatch(addToCart({...product, quantity:1}));
+	const handleAddToCart = (product:Product) => {
+		dispatch(addToCart({
+			...product, quantity: 1,
+			totalPrice: 0
+		}));
 	};
 
-	const handleAdjustQuantity = (product, newQuantity) =>{
+	const handleAdjustQuantity = (product: Product, newQuantity: number) =>{
 		dispatch(adjustQuantity({...product, quantity:  newQuantity}))
 	};
 
-	const handleCategoryClick = category => {
+	const handleCategoryClick = (category: string) => {
     	setSelectedCategory(category);
   	};
   	const filteredProducts = selectedCategory === 'All'
@@ -49,7 +58,7 @@ const Products = () =>{
       </div>
 			
 			<div className='products-grid px-8'>
-			{filteredProducts.map(product =>(
+			{filteredProducts.map((product) =>(
 				<div key={product.id} className='rounded-sm bg-white p-2'>
 					<div className='flex justify-center mb-4 '>
 					<Image
@@ -61,7 +70,7 @@ const Products = () =>{
               			priority
             		/>
             		</div>
-          <div className='flex flex-col bg-red-100 md:h-64'>
+          <div className='flex flex-col md:h-64'>
           <div className='grow'>
           <h4 className='font-bold text-lg mb-2'>{product.name}</h4>
 					<p className='text-sm py-2 text-gray-800'>{product.description}</p>
@@ -72,7 +81,7 @@ const Products = () =>{
               			type="number"
               			placeholder='1'
               			className='border w-2/12 text-center'
-              			value={product.quantity}
+              			value={product.quantity !== null ? product.quantity: ''}
               			onChange={e =>
                 			handleAdjustQuantity(product, parseInt(e.target.value))
               			}

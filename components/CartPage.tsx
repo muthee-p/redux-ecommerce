@@ -1,25 +1,36 @@
 'use client'
 
-import {useState} from 'react'
+import {SetStateAction, useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, adjustQuantity, finalCartInfo } from '../slices/cartSlice';
+import { removeFromCart, adjustQuantity } from '../slices/cartSlice';
+
 
 import CartTotal from './CartTotal'
 
+export interface CartItem {
+	price: number;
+	image: string;
+	reduce(arg0: (total: any, item: any) => any, arg1: number): number;
+	map(arg0: (item: any) => import("react").JSX.Element): import("react").ReactNode;
+	
+	length: number;
+	
+	id: number;
+	name: string;
+	quantity: number;
+	totalPrice: number;
+  }
 
 const CartPage = () =>{
 
-
-	const cartItems = useSelector(state => state.cart)
+	const cartItems: CartItem[] = useSelector((state: CartItem[]) => state) || [];
 	const dispatch = useDispatch();
-	//  const shippingOption = useSelector((state) => state.cart.shippingOption); // Access shipping option from Redux store
-  // const couponCode = useSelector((state) => state.cart.couponCode);
-	const [shippingOption, setShippingOption] = useState('free');
-  const [couponCode, setCouponCode] = useState('');
-  const [isCouponValid, setIsCouponValid] = useState(false);
-  const shippingCosts = { flat: 10, pickup: 15 }
+	const [shippingOption, setShippingOption] = useState<string>('free');
+  	const [couponCode, setCouponCode] = useState<string>('');
+  	const [isCouponValid, setIsCouponValid] = useState<boolean>(false);
+ 
 	
 
 	if (!cartItems) {
@@ -27,54 +38,32 @@ const CartPage = () =>{
 	}
 
 
-	if (cartItems === 0){
+	if (cartItems.length === 0){
 		return <div>the cart is empty</div>
 	}
 
-	const totalCost = cartItems.reduce(
-		(total, item) => total + item.totalPrice,
+	const totalCost: number = cartItems.reduce(
+		(total:number, item: CartItem) => total + item.totalPrice,
 		0
 	);
 
-	const calculateTotalCost = () => {
-    let total = cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
 
-    if (shippingOption === 'flat') {
-      total += shippingCosts.flat;
-    } else if (shippingOption === 'pickup') {
-      total += shippingCosts.pickup;
-    }
-
-    if (couponCode === 'YOUSHOP') {
-      total -= 10;
-    }
-
-    return total;
-  };
-
-  const handlePaymentSuccess = () => {
-   
-    const totalCost = calculateTotalCost();
-
-    dispatch(finalCartInfo({ totalCost, couponCode, shippingOption }));
- };
-
-	const handleAdjustQuantity = (item, newQuantity) =>{
+	const handleAdjustQuantity = (item: CartItem, newQuantity: number) =>{
 		dispatch(adjustQuantity({...item, quantity:  newQuantity}))
 	};
 
-	const handleRemoveFromCart = item => {
+	const handleRemoveFromCart = (item: CartItem) => {
 		console.log(item)
 		dispatch(removeFromCart(item));
 	};
 
-	const handleCouponChange = (e) => {
+	const handleCouponChange = (e: { target: { value: SetStateAction<string>; }; }) => {
   setCouponCode(e.target.value);
 };
 
 const validateCoupon = () => {
  
-  const isValid = "YOUSHOP"
+  const isValid: boolean = couponCode ==="YOUSHOP";
 
   setIsCouponValid(isValid);
 };
@@ -98,7 +87,7 @@ const validateCoupon = () => {
 
 					</tr>
 				</thead>
-			{cartItems.map(item =>(
+			{cartItems.map((item: CartItem) =>(
 				<tbody key={item.id} className='border-b border-gray-400' >
 					<tr>
 						<td className='md:w-20 text-center py-4'>

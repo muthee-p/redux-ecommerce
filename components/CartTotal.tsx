@@ -1,9 +1,18 @@
 "use client";
 
-import React, {useState} from 'react';
+import React from 'react';
 import CheckoutButton from './CheckoutButton'
+import { CartItem } from './CartPage'
 
-const CartTotal = ({ cartItems, shippingOption, setShippingOption, couponCode, totalCost }) => {
+interface CartTotalProps {
+  cartItems: CartItem[]; 
+  shippingOption: string;
+  setShippingOption: (option: string) => void; 
+  couponCode: string;
+  totalCost: number;
+}
+
+const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShippingOption, couponCode, totalCost }) => {
   const shippingCosts = { free: 0, flat: 10, pickup: 15 };
 
   const calculatedTotalCost = () => {
@@ -109,7 +118,7 @@ const CartTotal = ({ cartItems, shippingOption, setShippingOption, couponCode, t
           couponCode={couponCode}
           totalCost={totalCost}
           calculateTotalCost={calculateTotalCost} 
-          shippingValue={shippingValue}
+          shippingValue={0}
            />
           
     </div>

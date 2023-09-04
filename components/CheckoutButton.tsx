@@ -2,16 +2,27 @@
 
 import React, {useState} from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
-import Link from 'next/link'
 import PaymentPage from './PaymentPage'
 
-const CheckoutButton = ({cartItems, calculateTotalCost, shippingOption, shippingValue, setShippingOption, couponCode, totalCost}) => {
+import { CartItem } from './CartPage'
+
+interface PageProps {
+  cartItems: CartItem[]; 
+  shippingOption: string;
+  setShippingOption: (option: string) => void; 
+  couponCode: string;
+  totalCost: number;
+  calculateTotalCost:string;
+  shippingValue: number;
+}
+
+const CheckoutButton: React.FC<PageProps> = ({cartItems, calculateTotalCost, shippingOption, shippingValue, setShippingOption, couponCode, totalCost}) => {
   const { data: session } = useSession();
 
   //const cartItems = useSelector(state => state.cart);
   const [showPayment, setShowPayment] = useState(false);
 
-  const handleCheckOut = () =>{
+  const handleCheckOut = (event: { preventDefault: () => void; }) =>{
     event.preventDefault();
     setShowPayment(true);
     //dispatch(clearCart());
@@ -36,7 +47,7 @@ const CheckoutButton = ({cartItems, calculateTotalCost, shippingOption, shipping
           totalCost={totalCost} 
           calculateTotalCost={calculateTotalCost} 
           shippingValue={shippingValue}
-          onClose={() => setShowPayment(false)}
+         
         />
       )}
       </div>

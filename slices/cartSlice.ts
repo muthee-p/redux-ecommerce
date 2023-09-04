@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface CartItem {
   id: number;
@@ -9,14 +9,15 @@ interface CartItem {
   totalPrice: number;
 }
 
+
 const cartSlice = createSlice({
 	name: 'cart',
-	initialState: [],
+	initialState: [] as CartItem[],
 	reducers: {
-		addToCart: (state, action) => {
+		addToCart: (state, action: PayloadAction<CartItem>) => {
 			const {id, name, image, price, quantity = 1 } = action.payload;
 			
-			const existingItem = state.find(item => item.id === action.payload.id);
+			const existingItem = state.find((item) => item.id === action.payload.id);
 			
 			if(existingItem){
 				existingItem.quantity += quantity;
@@ -27,10 +28,10 @@ const cartSlice = createSlice({
 			}
 		},
 
-		removeFromCart: (state, action) => {
+		removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
 			return state.filter(item => item.id !== action.payload.id);
 		},
-		adjustQuantity: (state, action) => {
+		adjustQuantity: (state, action:  PayloadAction<{ id: number; quantity: number}> ) => {
 			const {id, quantity } = action.payload;
 			const itemToUpdate = state.find(item => item.id === id);
 			if (itemToUpdate) {
@@ -38,21 +39,16 @@ const cartSlice = createSlice({
 				itemToUpdate.totalPrice = roundToTwoDecimals(itemToUpdate.price * quantity);
 			}
 		},
-		finalCartInfo: (state, action) => {
-			state.totalCost = action.payload.totalCost;
-			state.couponCode = action.payload.couponCode;
-			state.shippingOption = action.payload.shippingOption;
-		},
-		clearCart: state =>{
+		clearCart: (state) =>{
 			return [];
 		}
 	},
 
 });
 
-function roundToTwoDecimals(value) {
+function roundToTwoDecimals(value: number):number {
 	return Math.round(value * 100)/100;
 }
 
-export const { addToCart, removeFromCart, adjustQuantity, finalCartInfo, clearCart} = cartSlice.actions;
+export const { addToCart, removeFromCart, adjustQuantity, clearCart} = cartSlice.actions;
 export default cartSlice.reducer

@@ -6,7 +6,19 @@ import Link from 'next/link'
 import { useSession } from "next-auth/react";
 import ReceiptDownload from './ReceiptDownload'
 
-const Receipt = ({calculateTotalCost, shippingValue, cartItems, shippingOption, setShippingOption, couponCode, totalCost}) => {
+import { CartItem } from './CartPage'
+
+interface PageProps {
+  cartItems: CartItem[]; 
+  shippingOption: string;
+  setShippingOption: (option: string) => void; 
+  couponCode: string;
+  totalCost: number;
+  calculateTotalCost:number;
+  shippingValue: number;
+}
+
+const Receipt: React.FC<PageProps> = ({calculateTotalCost, shippingValue, cartItems, shippingOption, setShippingOption, couponCode, totalCost}) => {
   const { data: session } = useSession();
   const dispatch = useDispatch();
   const currentDate = new Date();
@@ -15,7 +27,7 @@ const Receipt = ({calculateTotalCost, shippingValue, cartItems, shippingOption, 
   const orderNumber = Array.from({ length: 3 }, () => Math.floor(Math.random() * 100) + 1);
   const paymentId = Array.from({ length: 8 }, () => Math.floor(Math.random() * 100) + 1);
   
-   const handleHome = (event) =>{
+   const handleHome = (event: { preventDefault: () => void; }) =>{
     event.preventDefault();    
     dispatch(clearCart());
   }
@@ -33,7 +45,7 @@ const Receipt = ({calculateTotalCost, shippingValue, cartItems, shippingOption, 
           <div>
             <h2 className='text-xl font-semibold'>Order: {orderNumber}</h2>
            
-            {session && (
+            {session?.user && (
               <p>Receipt for: {session.user.name}</p>
             )}
 
