@@ -27,7 +27,7 @@ const CartPage = () =>{
 
 
 	if (cartItems.length === 0){
-		return <div>Your cart is empty!\</div>
+		return <div>Your cart is empty!</div>
 	}
 
 	const totalCost = cartItems.reduce(
