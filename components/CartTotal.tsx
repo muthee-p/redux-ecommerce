@@ -2,7 +2,21 @@
 
 import React from 'react';
 import CheckoutButton from './CheckoutButton'
-import { CartItem } from './CartPage'
+
+
+export interface CartItem {
+	price: number;
+	image: string;
+	reduce(arg0: (total: any, item: any) => any, arg1: number): number;
+	map(arg0: (item: any) => import("react").JSX.Element): import("react").ReactNode;
+	
+	length: number;
+	
+	id: number;
+	name: string;
+	quantity: number;
+	totalPrice: number;
+  }
 
 interface CartTotalProps {
   cartItems: CartItem[]; 

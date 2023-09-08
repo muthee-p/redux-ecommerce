@@ -94,10 +94,12 @@ line-height: 14px;
 @media (max-width: 768px) {
   .bg-cover-full {
     background-attachment: scroll;
-    height: auto;
+    height: 40rem;
+    background-size: cover;
   }
   .products-grid {
   grid-template-columns: repeat(2, 1fr); 
+  gap: 0.5rem;
  
 }
 }

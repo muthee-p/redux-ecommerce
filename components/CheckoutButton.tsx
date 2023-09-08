@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import PaymentPage from './PaymentPage'
 
-import { CartItem } from './CartPage'
+import { CartItem } from './CartTotal'
 
 interface PageProps {
   cartItems: CartItem[]; 

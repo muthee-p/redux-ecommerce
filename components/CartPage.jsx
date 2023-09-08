@@ -9,27 +9,15 @@ import { removeFromCart, adjustQuantity } from '../slices/cartSlice';
 
 import CartTotal from './CartTotal'
 
-export interface CartItem {
-	price: number;
-	image: string;
-	reduce(arg0: (total: any, item: any) => any, arg1: number): number;
-	map(arg0: (item: any) => import("react").JSX.Element): import("react").ReactNode;
-	
-	length: number;
-	
-	id: number;
-	name: string;
-	quantity: number;
-	totalPrice: number;
-  }
+
 
 const CartPage = () =>{
 
-	const cartItems: CartItem[] = useSelector((state: CartItem[]) => state) || [];
+	const cartItems = useSelector((state) => state.cart) ;
 	const dispatch = useDispatch();
-	const [shippingOption, setShippingOption] = useState<string>('free');
-  	const [couponCode, setCouponCode] = useState<string>('');
-  	const [isCouponValid, setIsCouponValid] = useState<boolean>(false);
+	const [shippingOption, setShippingOption] = useState('free');
+  	const [couponCode, setCouponCode] = useState('');
+  	const [isCouponValid, setIsCouponValid] = useState(false);
  
 	
 
@@ -39,31 +27,31 @@ const CartPage = () =>{
 
 
 	if (cartItems.length === 0){
-		return <div>the cart is empty</div>
+		return <div>Your cart is empty!\</div>
 	}
 
-	const totalCost: number = cartItems.reduce(
-		(total:number, item: CartItem) => total + item.totalPrice,
+	const totalCost = cartItems.reduce(
+		(total, item) => total + item.totalPrice,
 		0
 	);
 
 
-	const handleAdjustQuantity = (item: CartItem, newQuantity: number) =>{
+	const handleAdjustQuantity = (item, newQuantity) =>{
 		dispatch(adjustQuantity({...item, quantity:  newQuantity}))
 	};
 
-	const handleRemoveFromCart = (item: CartItem) => {
+	const handleRemoveFromCart = (item) => {
 		console.log(item)
 		dispatch(removeFromCart(item));
 	};
 
-	const handleCouponChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+	const handleCouponChange = (e) => {
   setCouponCode(e.target.value);
 };
 
 const validateCoupon = () => {
  
-  const isValid: boolean = couponCode ==="YOUSHOP";
+  const isValid= couponCode ==="YOUSHOP";
 
   setIsCouponValid(isValid);
 };
@@ -87,7 +75,7 @@ const validateCoupon = () => {
 
 					</tr>
 				</thead>
-			{cartItems.map((item: CartItem) =>(
+			{cartItems.map((item) =>(
 				<tbody key={item.id} className='border-b border-gray-400' >
 					<tr>
 						<td className='md:w-20 text-center py-4'>

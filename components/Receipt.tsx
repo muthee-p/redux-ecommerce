@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useSession } from "next-auth/react";
 import ReceiptDownload from './ReceiptDownload'
 
-import { CartItem } from './CartPage'
+import { CartItem } from './CartTotal'
 
 interface PageProps {
   cartItems: CartItem[]; 
@@ -124,7 +124,7 @@ const Receipt: React.FC<PageProps> = ({calculateTotalCost, shippingValue, cartIt
             <p>YOU SHOP</p>
           </div>
 
-          <div className='inline-flex'>
+          <div className='flex justify-between'>
             <Link href='/' 
               onClick={handleHome}
               className='bg-black py-1 px-2 text-white'> 
@@ -133,8 +133,7 @@ const Receipt: React.FC<PageProps> = ({calculateTotalCost, shippingValue, cartIt
 
             <ReceiptDownload
             cartItems={cartItems} 
-            shippingOption={shippingOption} 
-            setShippingOption={setShippingOption} 
+            shippingOption={shippingOption}  
             couponCode={couponCode}
             totalCost={totalCost} 
             calculateTotalCost={calculateTotalCost} 

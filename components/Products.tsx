@@ -42,7 +42,7 @@ const Products = () =>{
 
 	
 	return(
-		<div className='px-24 md:pt-16 pt-8 pb-16'>
+		<div className='px-2 md:px-24 md:pt-16 pt-8 pb-16'>
 		 <div className='flex md:justify-center w-screen md:w-full overflow-x-scroll md:overflow-x-hidden'>
         {categories.map(category => (
         	
@@ -57,7 +57,7 @@ const Products = () =>{
         ))}
       </div>
 			
-			<div className='products-grid px-8'>
+			<div className='products-grid md:px-8 px-2'>
 			{filteredProducts.map((product) =>(
 				<div key={product.id} className='rounded-sm bg-white p-2'>
 					<div className='flex justify-center mb-4 '>

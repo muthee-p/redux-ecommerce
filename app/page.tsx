@@ -16,7 +16,7 @@ export default function Home() {
 
         <Nav />
 
-        <div className='md:mt-[16rem] mt-16 w-2/3 md:px-24 backdrop-blur-lg p-8 flex flex-col items-center justify-center '>
+        <div className='md:mt-[16rem] mt-20 w-2/3 md:px-24 backdrop-blur-lg p-8 flex flex-col items-center justify-center '>
         <div className=''>
           <h1 className='md:text-8xl text-5xl text-white font-serif text-center'>
             Wear the best
