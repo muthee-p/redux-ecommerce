@@ -69,11 +69,11 @@ const Nav = () => {
             </div>
           
 
-            <div className='md:hidden'>
+            <div className='md:hidden pr-2'>
               <button
                       type="button"
                       onClick={toggleMenu}
-                      className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-orange-500 focus:outline-none focus:bg-black focus:text-white transition duration-150 ease-in-out"
+                      className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-white hover:bg-orange-500 focus:outline-none focus:bg-black focus:text-white transition duration-150 ease-in-out"
                     >
                       <svg
                         className={`${isOpen ? 'hidden' : 'block'} h-4 w-4`}
