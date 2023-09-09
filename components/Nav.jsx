@@ -28,7 +28,7 @@ const Nav = () => {
     <nav className= 'fixed w-full text-gray-900  py-8 z-10 backdrop-blur-lg  md:backdrop-blur'>
       <div className="max-w-screen px-2 md:px-20 ">
         <div className="flex items-center ">
-          <div className="w-full flex items-center md:justify-between ">
+          <div className="w-full flex items-center justify-between ">
             <div className="flex-shrink-0">
               <Link href="/" className='inline-flex gap-2'>
                 <Image
@@ -49,7 +49,7 @@ const Nav = () => {
               <Link href="/shop" className='hidden md:block hover:text-orange-600 px-4 mr-4'>Shop</Link>
 
               <Link href="/cart">
-                <div className="">
+                <div className="ml-12 md:ml-0">
 
                   {cartItemCount > 0 && 
                     <span className="badge bg-orange-500 absolute flex items-center justify-center cart-font text-white rounded-full z-10 w-3 h-3">
