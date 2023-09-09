@@ -25,7 +25,7 @@ const Nav = () => {
 
 
   return (
-    <nav className= 'fixed w-full text-gray-900  py-8 z-10  backdrop-blur'>
+    <nav className= 'fixed w-full text-gray-900  py-8 z-10 backdrop-blur-lg  md:backdrop-blur'>
       <div className="max-w-screen px-2 md:px-20 ">
         <div className="flex items-center ">
           <div className="w-full flex items-center justify-between">
@@ -64,7 +64,7 @@ const Nav = () => {
                   />
                 </div>
               </Link>
-              <div className=""><SigninButton /></div>
+              <div className="ml-2 md:ml-0"><SigninButton /></div>
                 
             </div>
           
@@ -98,14 +98,14 @@ const Nav = () => {
 
 
           <div className={`${isOpen ? 'block w-full' : 'hidden'} md:hidden`}>
-            <div className=" py-4 flex flex-col justify-center items-center h-[80%]">
+            <div className=" py-4 flex flex-col justify-center items-center w-full">
               <Link href="/"
                 className="py-4 border-b"
                 onClick={handleLinkClick}
                 >Home
               </Link>
               <Link href="/shop"
-                className='py-4'
+                className='pt-4'
                 onClick={handleLinkClick}
                 >Shop
               </Link>
