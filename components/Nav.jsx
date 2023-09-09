@@ -28,7 +28,7 @@ const Nav = () => {
     <nav className= 'fixed w-full text-gray-900  py-8 z-10 backdrop-blur-lg  md:backdrop-blur'>
       <div className="max-w-screen px-2 md:px-20 ">
         <div className="flex items-center ">
-          <div className="w-full flex items-center justify-between">
+          <div className="w-full flex items-center md:justify-between ">
             <div className="flex-shrink-0">
               <Link href="/" className='inline-flex gap-2'>
                 <Image
@@ -105,7 +105,7 @@ const Nav = () => {
                 >Home
               </Link>
               <Link href="/shop"
-                className='py-4 border-b'
+                className='pt-4 pb-8 border-b'
                 onClick={handleLinkClick}
                 >Shop
               </Link>
