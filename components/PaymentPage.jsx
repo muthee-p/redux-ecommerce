@@ -35,7 +35,7 @@ const PaymentPage = ({calculateTotalCost, shippingValue, cartItems, shippingOpti
 
   return (
     <div className='fixed top-0 left-0 backdrop-blur w-full h-screen z-10 flex justify-center items-center'>
-    <div className=' bg-gray-100 w-1/3 p-4  flex flex-col justify-around items-center text-sm'>
+    <div className=' bg-gray-100 md:w-1/3 p-4 w-full  flex flex-col justify-around items-center text-sm'>
      <Link href='/cart' 
       className='mb-8' 
       onClick={(e) => { e.preventDefault();}}
