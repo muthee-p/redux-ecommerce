@@ -30,7 +30,7 @@ export default function Home() {
         </div>
         </div>
 
-        <section className='py-16 text-sm'>
+        <section className='md:py-16 pt-2 pb-12 text-sm'>
         <div className='w-full flex md:flex-row flex-col gap-2 md:px-52'>
 
           <div className='bg-gray-50 md:w-1/3 p-4 rounded-md flex flex-col items-center justify-center'>
