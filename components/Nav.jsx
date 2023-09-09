@@ -64,7 +64,7 @@ const Nav = () => {
                   />
                 </div>
               </Link>
-              <div className="ml-2 md:ml-0"><SigninButton /></div>
+              <div className="hidden md:block"><SigninButton /></div>
                 
             </div>
           
@@ -109,7 +109,7 @@ const Nav = () => {
                 onClick={handleLinkClick}
                 >Shop
               </Link>
-        
+              <div className=""><SigninButton /></div>
             </div>
           </div>
        
