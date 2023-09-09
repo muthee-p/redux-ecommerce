@@ -98,14 +98,14 @@ const Nav = () => {
 
 
           <div className={`${isOpen ? 'block w-full' : 'hidden'} md:hidden`}>
-            <div className=" py-4 flex flex-col justify-center items-center w-full">
+            <div className=" pt-4 flex flex-col justify-center items-center w-full">
               <Link href="/"
                 className="py-4 border-b"
                 onClick={handleLinkClick}
                 >Home
               </Link>
               <Link href="/shop"
-                className='pt-4'
+                className='py-4 border-b'
                 onClick={handleLinkClick}
                 >Shop
               </Link>
