@@ -10,7 +10,7 @@ const SigninButton = () => {
         <p className="text-orange-600 text-sm ">Hello, {session.user.name}</p>
         <button 
           onClick={() => signOut()} 
-          className="border border-black text-black hidden md:block text-sm rounded-full px-4 py">
+          className="border border-black text-black text-sm rounded-full px-4 py">
           Sign Out
         </button>
       </div>
