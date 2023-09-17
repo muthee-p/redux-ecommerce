@@ -38,6 +38,8 @@ const Products = () =>{
     ? products
     : products.filter(product => product.category === selectedCategory);
 
+	product.price=product.price.toLocaleString();
+
     const categories = ['All', 'Mens Clothing', 'Women Clothing', 'Shoes', 'Accessories']
 
 	
@@ -74,7 +76,7 @@ const Products = () =>{
           <div className='grow'>
           <h4 className='font-bold text-lg mb-2'>{product.name}</h4>
 					<p className='text-sm py-2 text-gray-800'>{product.description}</p>
-					<h3 className='text-lg  pt-2 pb-4 font-semibold'>${product.price}</h3>
+					<h3 className='text-lg  pt-2 pb-4 font-semibold'>ksh{product.price}</h3>
 					</div>
 					<div className=' inline-flex gap-2'>
 					<input
