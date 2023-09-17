@@ -49,9 +49,9 @@ const ReceiptDownload = ({ formattedDate, orderNumber, paymentId, calculateTotal
     doc.autoTable({
       startY: summaryTableY,
       body: [
-        ['Subtotal', `$${totalCost}`],
+        ['Subtotal', `$ ksh {totalCost}`],
         ['Shipping', `${shippingOption} of ${shippingValue}`],
-        ['Coupon Code', `${couponCode}${couponCode === 'YOUSHOP' ? ' - $10' : ' X'}`],
+        ['Coupon Code', `${couponCode}${couponCode === 'YOUSHOP' ? ' - ksh 100' : ' X'}`],
         ['Total', `$${calculateTotalCost}`],
         ['Transaction Type', 'Sale'],
         ['Authorization', 'Approved'],
