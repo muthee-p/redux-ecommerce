@@ -38,7 +38,7 @@ const Products = () =>{
     ? products
     : products.filter(product => product.category === selectedCategory)
 	.map(product => ({
-		..product, price: product.price.toLocaleString(),
+		...product, price: product.price.toLocaleString(),
 	     }));
 
 	
