@@ -67,7 +67,7 @@ const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShip
         <tbody>
           <tr className="w-full border-y border-gray-400 py-4">
             <td className="md:w-40 py-4">Subtotal</td>
-            <td className="md:w-60 text-right py-4">${totalCost.toFixed(2)}</td>
+            <td className="md:w-60 text-right py-4">ksh{totalCost.toFixed(2)}</td>
           </tr>
 
           <tr>
@@ -85,7 +85,7 @@ const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShip
                 />
               </label>
               <label className="inline-flex">
-                Flat Shipping: $10
+                Flat Shipping: ksh 100
                 <input
                   type="radio"
                   value="flat"
@@ -96,7 +96,7 @@ const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShip
                 />
               </label>
               <label className="inline-flex">
-                Pickup: $15
+                Pickup: ksh 150
                 <input
                   type="radio"
                   value="pickup"
@@ -113,7 +113,7 @@ const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShip
             <td className="flex flex-col items-end py-4">
               {couponCode}
               {couponCode === 'YOUSHOP' ? (
-                <span className="text-green-500 ml-2">- $10</span>
+                <span className="text-green-500 ml-2">- ksh 100</span>
               ) : (
                 <span className="text-red-500 ml-2">X</span>
               )}
@@ -121,7 +121,7 @@ const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShip
           </tr>
           <tr className=" border-t border-gray-800">
             <td className="font-bold py-4">Total</td>
-            <td className="flex flex-col items-end py-4">${calculateTotalCost}</td>
+            <td className="flex flex-col items-end py-4">ksh {calculateTotalCost}</td>
           </tr>
         </tbody>
       </table>
