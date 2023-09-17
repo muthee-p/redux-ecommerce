@@ -4,7 +4,7 @@
 			name:'Black Evening Dress',
 			description: "Make a statement of elegance while embracing sustainability with our eco-friendly black evening dress. This stunning gown is not only a fashion statement but also a conscious choice for the planet.",
 			image: "/images/dress1.jpg",
-			price: 1000.99,
+			price: 10000.99,
 			quantity: null,
 			category: "Women Clothing"
 		},
@@ -13,7 +13,7 @@
 			name:'White Picnic Dress',
 			description: "Crafted with sustainable materials and designed for timeless beauty, it features intricate lace details, a flowing silhouette, and a touch of shimmer. ",
 			image: "/images/dress2.jpg",
-			price: 800.89,
+			price: 8000.89,
 			quantity: null,
 			category: "Women Clothing"
 		},
@@ -22,7 +22,7 @@
 			name:'Green bag',
 			description: " Whether you're seeking a classic tote, a chic crossbody, or an elegant clutch, our handbags are designed to complement your outfit and keep you organized in style.",
 			image: "/images/bag1.jpg",
-			price: 83.45,
+			price: 830.45,
 			quantity: null,
 			category: "Accessories"
 		},
@@ -31,7 +31,7 @@
 			name:'Heels',
 			description: "Step into elegance with our collection of women's heels. From stilettos that add drama to your evening attire to comfortable block heels for all-day wear.",
 			image: "/images/heel.jpg",
-			price: 890.93,
+			price: 8900.93,
 			quantity: null,
 			category: "Shoes"
 		},
@@ -40,7 +40,7 @@
 			name:'Jacket',
 			description: "Crafted with sustainable materials and design your style and your commitment to a greener world.",
 			image: "/images/jacket.jpg",
-			price: 1100.76,
+			price: 11000.76,
 			quantity: null,
 			category: "Mens Clothing"
 		},
@@ -49,7 +49,7 @@
 			name:'Men\'s jeans',
 			description: "  Embrace timeless denim with our range of men's jeans. Whether you prefer a slim fit for a modern silhouette or a relaxed, vintage-inspired look, our jeans are designed to match your style.",
 			image: "/images/jean2.jpg",
-			price: 110.19,
+			price: 1100.19,
 			quantity: null,
 			category: "Mens Clothing"
 		},
@@ -58,7 +58,7 @@
 			name:'Men\'s jeans',
 			description: " From classic blue denim to rugged, distressed styles, find the perfect pair to express your individuality.",
 			image: "/images/jeans.jpg",
-			price: 97.69,
+			price: 970.69,
 			quantity: null,
 			category: "Mens Clothing"
 		},
@@ -67,7 +67,7 @@
 			name:'Men\'s Coat',
 			description: "When it comes to outerwear, our collection of men's coats and jackets is a testament to sophistication and warmth. ",
 			image: "/images/mcoat.jpg",
-			price: 1400.67,
+			price: 14000.67,
 			quantity: null,
 			category: "Mens Clothing"
 		},
@@ -76,7 +76,7 @@
 			name:'Men\'s Coat',
 			description: " From tailored overcoats that exude refinement to versatile jackets built for every season, you'll find outerwear that not only protects you from the elements but also makes a statement.",
 			image: "/images/mcoat1.jpg",
-			price: 1200.45,
+			price: 12000.45,
 			quantity: null,
 			category: "Mens Clothing"
 		},
@@ -85,7 +85,7 @@
 			name:'Unisex Rubber Shoe',
 			description: "  From classic white sneakers for a clean, versatile look to bold, statement-making designs that turn heads, we have the footwear that complements your unique swagger.",
 			image: "/images/rubber.jpg",
-			price: 75.89,
+			price: 750.89,
 			quantity: null,
 			category: "Shoes"
 		},
@@ -94,7 +94,7 @@
 			name:'Men\'s Orange Sneakers',
 			description: "  From classic white sneakers for a clean, versatile look to bold, statement-making designs that turn heads, we have the footwear that complements your unique swagger.",
 			image: "/images/sneekers.jpg",
-			price: 85.65,
+			price: 850.65,
 			quantity: null,
 			category: "Shoes"
 		},
@@ -103,7 +103,7 @@
 			name:'Sunnies',
 			description: "Shield your eyes from the sun while making a fashion statement with our selection of sunglasses.",
 			image: "/images/sung.jpg",
-			price: 25.23,
+			price: 250.23,
 			quantity: null,
 			category: "Accessories"
 		},
@@ -112,7 +112,7 @@
 			name:'SunGlasses',
 			description: "Our curated range of shades offers both UV protection and style. Each pair adds a touch of glamour and sophistication to your look.",
 			image: "/images/sung1.jpg",
-			price: 28.87,
+			price: 280.87,
 			quantity: null,
 			category: "Accessories"
 		},
@@ -121,7 +121,7 @@
 			name:'Unisex SunGlasses',
 			description: "Choose from classic aviators, trendy cat-eye frames, retro-inspired round lenses, and more. Each pair adds a touch of glamour and sophistication to your look.",
 			image: "/images/sung2.jpg",
-			price: 30.56,
+			price: 300.56,
 			quantity: null,
 			category: "Accessories"
 		},
@@ -130,7 +130,7 @@
 			name:'Women\'s Coat',
 			description: "  From classic white sneakers for a clean, versatile look to bold, statement-making designs that turn heads, we have the footwear that complements your unique swagger.",
 			image: "/images/wcoat1.jpg",
-			price: 800.89,
+			price: 8000.89,
 			quantity: null,
 			category: "Women Clothing"
 		},
@@ -139,7 +139,7 @@
 			name:'Women\'s Coat',
 			description: "  From classic white sneakers for a clean, versatile look to bold, statement-making designs that turn heads, we have the footwear that complements your unique swagger.",
 			image: "/images/wcoat2.jpg",
-			price: 1000.99,
+			price: 10000.99,
 			quantity: null,
 			category: "Women Clothing"
 		},
