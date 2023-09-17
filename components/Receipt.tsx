@@ -72,7 +72,7 @@ const Receipt: React.FC<PageProps> = ({calculateTotalCost, shippingValue, cartIt
           <table className='mt-4 w-full'>
             <tr>
               <td>Subtotal</td>
-              <td className='text-right'>${totalCost}</td>
+              <td className='text-right'>ksh {totalCost}</td>
             </tr>
             <tr>
               <td>Shipping</td>
@@ -83,7 +83,7 @@ const Receipt: React.FC<PageProps> = ({calculateTotalCost, shippingValue, cartIt
               <td className='text-right'>
                 {couponCode}
                 {couponCode === 'YOUSHOP' ? (
-                <span className="ml-2">- $10</span>
+                <span className="ml-2">- ksh 100</span>
               ) : (
                 <span className="ml-2">X</span>
               )}
@@ -92,7 +92,7 @@ const Receipt: React.FC<PageProps> = ({calculateTotalCost, shippingValue, cartIt
             </tr>
             <tr>
               <td>Total</td>
-              <td className='text-right'>${calculateTotalCost}</td>
+              <td className='text-right'>ksh {calculateTotalCost}</td>
             </tr>
             <tr>
               <td>Transaction Type</td>
