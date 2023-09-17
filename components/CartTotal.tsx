@@ -27,7 +27,7 @@ interface CartTotalProps {
 }
 
 const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShippingOption, couponCode, totalCost }) => {
-  const shippingCosts = { free: 0, flat: 10, pickup: 15 };
+  const shippingCosts = { free: 0, flat: 100, pickup: 150 };
 
   const calculatedTotalCost = () => {
     let total = cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
@@ -39,7 +39,7 @@ const CartTotal:React.FC<CartTotalProps> = ({ cartItems, shippingOption, setShip
     }
 
     if (couponCode === 'YOUSHOP') {
-      total -= 10;
+      total -= 100;
     }
 
     return total.toFixed(2);
