@@ -36,9 +36,12 @@ const Products = () =>{
   	};
   	const filteredProducts = selectedCategory === 'All'
     ? products
-    : products.filter(product => product.category === selectedCategory);
+    : products.filter(product => product.category === selectedCategory)
+	.map(product => ({
+		..product, price: product.price.toLocaleString(),
+	     }));
 
-	product.price=product.price.toLocaleString();
+	
 
     const categories = ['All', 'Mens Clothing', 'Women Clothing', 'Shoes', 'Accessories']
 
